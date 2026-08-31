@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Commerce Checkout & Delivery</title>
+</head>
+<body>
+   
+    <!-- Requirement 1: Short introduction and checkout title -->
+    <h1>Checkout Page</h1>
+    <p>Please review your selected items and complete your customer, delivery, and payment details below to finalize your order.</p>
+    
+    <!-- Requirement 17: Continue Shopping link -->
+    <p><a href="problem-05.html">Continue Shopping</a></p>
+
+    <!-- Requirement 17: Store/Product image -->
+    <img src="https://tse4.mm.bing.net/th/id/OIP.G7AtZyvbVAzbyb6KgsrTWQHaEP?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="E-Commerce Store Banner" width="600" height="350">
+
+    <hr>
+
+    <!-- Requirement 2 & 18: Order summary table with Product, Quantity, Unit Price, Total, and semantic markup -->
+    <h2>1. Order Summary</h2>
+    <table border="1" cellpadding="8" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Unit Price ($)</th>
+                <th>Total ($)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Wireless Headphones</td>
+                <td>1</td>
+                <td>50.00</td>
+                <td>50.00</td>
+            </tr>
+            <tr>
+                <td>USB-C Fast Charger</td>
+                <td>2</td>
+                <td>15.00</td>
+                <td>30.00</td>
+            </tr>
+            <tr>
+                <td>Screen Protector</td>
+                <td>1</td>
+                <td>10.00</td>
+                <td>10.00</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="3" align="right">Grand Total</th>
+                <th>$90.00</th>
+            </tr>
+        </tfoot>
+    </table>
+
+    <br>
+
+    <!-- Requirement 19: Pure HTML form without CSS or JavaScript -->
+    <form>
+
+        <!-- Requirement 3: Customer information section -->
+        <h3>2. Customer Information</h3>
+        <p>
+            <label for="fullname">Full Name:</label><br>
+            <!-- Requirement 5, 13, 14: Text input with required, length constraints, placeholder, and meaningful name -->
+            <input type="text" id="fullname" name="fullname" required minlength="3" maxlength="50" placeholder="Lakshit Sharma">
+        </p>
+        <p>
+            <label for="email">Email Address:</label><br>
+            <!-- Requirement 5, 13, 14: Email type input with validation attributes -->
+            <input type="email" id="email" name="email" required placeholder="Lakshit.sharma@example.com">
+        </p>
+        <p>
+            <label for="mobile">Mobile Number:</label><br>
+            <!-- Requirement 5, 13, 14: Tel type input with 10-digit regex pattern constraint -->
+            <input type="tel" id="mobile" name="mobile" required pattern="[0-9]{10}" placeholder="10-digit mobile number">
+        </p>
+
+        <hr>
+
+        <!-- Requirement 4: Delivery address fields -->
+        <h3>3. Delivery Address</h3>
+        <p>
+            <label for="address">House / Street Address:</label><br>
+            <input type="text" id="address" name="address" required minlength="5" maxlength="100" placeholder="123 Tilak Nagar">
+        </p>
+        <p>
+            <label for="city">City:</label><br>
+            <input type="text" id="city" name="city" required minlength="2" maxlength="50" placeholder="New York">
+        </p>
+        <p>
+            <label for="state">State:</label><br>
+            <!-- Requirement 6: State select dropdown with multiple options -->
+            <select id="state" name="state" required>
+                <option value="">-- Select State --</option>
+                <option value="CA">California</option>
+                <option value="NY">New York</option>
+                <option value="TX">Texas</option>
+                <option value="FL">Florida</option>
+            </select>
+        </p>
+        <p>
+            <label for="postal">Postal Code:</label><br>
+            <!-- Requirement 5, 13: Postal code pattern validation (5-6 digits) -->
+            <input type="text" id="postal" name="postal" required pattern="[0-9]{5,6}" minlength="5" maxlength="6" placeholder="10001">
+        </p>
+        <p>
+            <label for="country">Country:</label><br>
+            <!-- Requirement 6: Country select dropdown with multiple options -->
+            <select id="country" name="country" required>
+                <option value="">-- Select Country --</option>
+                <option value="US">United States</option>
+                <option value="IN">India</option>
+                <option value="CA">Canada</option>
+                <option value="UK">United Kingdom</option>
+            </select>
+        </p>
+        <p>
+            <!-- Requirement 10: Billing address checkbox option -->
+            <input type="checkbox" id="same_billing" name="same_billing" value="yes" checked>
+            <label for="same_billing">Billing address is the same as delivery address</label>
+        </p>
+
+        <hr>
+
+        <!-- Requirement 7: Delivery choices (Standard, Express, Same Day) -->
+        <h3>4. Delivery Choice</h3>
+        <p>
+            <input type="radio" id="standard" name="delivery_choice" value="standard" checked required>
+            <label for="standard">Standard Delivery (3-5 Business Days)</label>
+        </p>
+        <p>
+            <input type="radio" id="express" name="delivery_choice" value="express">
+            <label for="express">Express Delivery (1-2 Business Days)</label>
+        </p>
+        <p>
+            <input type="radio" id="sameday" name="delivery_choice" value="sameday">
+            <label for="sameday">Same Day Delivery</label>
+        </p>
+        <p>
+            <!-- Requirement 11: Textarea for special delivery instructions -->
+            <label for="instructions">Delivery Instructions:</label><br>
+            <textarea id="instructions" name="instructions" rows="4" cols="50" maxlength="300" placeholder="Leave at the front door or call upon arrival..."></textarea>
+        </p>
+
+        <hr>
+
+        <!-- Requirement 8: Payment choices (Card, Cash on Delivery, UPI) -->
+        <h3>5. Payment Method</h3>
+        <p>
+            <input type="radio" id="card" name="payment_method" value="card" checked required>
+            <label for="card">Credit / Debit Card</label><br>
+            <input type="radio" id="cod" name="payment_method" value="cod">
+            <label for="cod">Cash on Delivery (COD)</label><br>
+            <input type="radio" id="upi" name="payment_method" value="upi">
+            <label for="upi">UPI / Online Payment</label>
+        </p>
+
+        <!-- Requirement 9: Specific payment input fields for card processing -->
+        <p><strong>Card Details (if paying via Card):</strong></p>
+        <p>
+            <label for="card_holder">Cardholder Name:</label><br>
+            <input type="text" id="card_holder" name="card_holder" placeholder="Lakshit Sharma">
+        </p>
+        <p>
+            <label for="card_number">Card Number:</label><br>
+            <!-- Requirement 5, 13: 16-digit card number validation pattern -->
+            <input type="text" id="card_number" name="card_number" pattern="[0-9]{16}" minlength="16" maxlength="16" placeholder="1234567890123456">
+        </p>
+        <p>
+            <label for="expiry">Expiry Date:</label><br>
+            <!-- Requirement 5: Month input type for card expiry -->
+            <input type="month" id="expiry" name="expiry">
+        </p>
+        <p>
+            <label for="cvv">Security Code (CVV):</label><br>
+            <!-- Requirement 5, 13: Password input type for CVV with 3-4 digit pattern constraint -->
+            <input type="password" id="cvv" name="cvv" pattern="[0-9]{3,4}" minlength="3" maxlength="4" placeholder="123">
+        </p>
+
+        <hr>
+
+        <!-- Requirement 12: Optional coupon/promo code input with pattern and maxlength -->
+        <h3>6. Coupon / Promo Code</h3>
+        <p>
+            <label for="promo">Promo Code:</label><br>
+            <input type="text" id="promo" name="promo" maxlength="10" pattern="[A-Za-z0-9]{3,10}" placeholder="SAVE10">
+        </p>
+
+        <hr>
+
+        <!-- Requirement 15: Terms & Conditions and Order Confirmation checkboxes -->
+        <h3>7. Confirmation</h3>
+        <p>
+            <input type="checkbox" id="terms" name="terms" value="accepted" required>
+            <label for="terms">I accept the <a href="problem-05.html">Terms & Conditions</a>.</label>
+        </p>
+        <p>
+            <input type="checkbox" id="confirm_order" name="confirm_order" value="confirmed" required>
+            <label for="confirm_order">I confirm that all details provided are accurate.</label>
+        </p>
+        <br>
+
+        <!-- Requirement 16: Form submission and reset controls -->
+        <p>
+            <input type="submit" value="Place Order">
+            <input type="reset" value="Reset Form">
+        </p>
+
+    </form>
+
+</body>
+</html>

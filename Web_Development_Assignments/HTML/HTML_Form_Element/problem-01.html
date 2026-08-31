@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>College Admission Application Form</title>
+</head>
+<body>
+
+    <!-- Page Heading and Introductory Paragraph -->
+    <h1>College Admission Application Form</h1>
+    <p>Welcome to the official online application portal. Please complete all sections below accurately. Ensure all required fields are filled and mandatory documents are attached before submitting your application.</p>
+    
+    <!-- Decorative/Informational Image -->
+    <img src="https://images.shiksha.com/mediadata/images/1723543710phpW7y0yv.jpeg" alt="University Campus Banner" width="500" height="250">
+
+    <hr>
+
+    <form>
+        
+        <!-- Personal Information Section -->
+        <h2>1. Personal Details</h2>
+        
+        <p>
+            <label for="fullname">Full Name:</label><br>
+            <input type="text" id="fullname" name="fullname" placeholder="e.g.,Lakshit Sharma" minlength="2" maxlength="50" required>
+        </p>
+
+        <p>
+            <label for="dob">Date of Birth:</label><br>
+            <input type="date" id="dob" name="dob" min="1990-01-01" max="2010-12-31" required>
+        </p>
+
+        <p>
+            <label for="email">Email Address:</label><br>
+            <input type="email" id="email" name="email" placeholder="student@example.com" required>
+        </p>
+
+        <p>
+            <label for="mobile">Mobile Number:</label><br>
+            <input type="tel" id="mobile" name="mobile" placeholder="10-digit mobile number" pattern="[0-9]{10}" maxlength="10" required>
+        </p>
+
+        <p>
+            <label for="pin">Application PIN (4-digit security code):</label><br>
+            <input type="password" id="pin" name="pin" placeholder="****" pattern="[0-9]{4}" maxlength="4" required>
+        </p>
+
+        <p>
+            <!-- Single-Choice Radio Field -->
+            <label>Gender:</label><br>
+            <input type="radio" id="gender-male" name="gender" value="male" required>
+            <label for="gender-male">Male</label>
+            
+            <input type="radio" id="gender-female" name="gender" value="female">
+            <label for="gender-female">Female</label>
+            
+            <input type="radio" id="gender-other" name="gender" value="other">
+            <label for="gender-other">Other</label>
+        </p>
+
+        <p>
+            <label for="category">Category:</label><br>
+            <select id="category" name="category" required>
+                <option value="">-- Select Category --</option>
+                <option value="general">General</option>
+                <option value="obc">OBC</option>
+                <option value="sc">SC</option>
+                <option value="st">ST</option>
+                <option value="ews">EWS</option>
+            </select>
+        </p>
+
+        <p>
+            <label for="address">Permanent Address:</label><br>
+            <textarea id="address" name="address" rows="4" cols="50" placeholder="Enter your complete home address here..." minlength="10" maxlength="300" required></textarea>
+        </p>
+
+        <hr>
+
+        <!-- Academic Information Section -->
+        <h2>2. Academic Details & Program Selection</h2>
+
+        <p>
+            <!-- Course/Program Selection (At least 6 options) -->
+            <label for="program">Select Course / Program:</label><br>
+            <select id="program" name="program" required>
+                <option value="">-- Select Preferred Program --</option>
+                <option value="btech-cs">B.Tech - Computer Science</option>
+                <option value="btech-ece">B.Tech - Electronics & Communication</option>
+                <option value="bca">Bachelor of Computer Applications (BCA)</option>
+                <option value="bsc-physics">B.Sc - Physics</option>
+                <option value="bba">Bachelor of Business Administration (BBA)</option>
+                <option value="bcom">Bachelor of Commerce (B.Com)</option>
+            </select>
+        </p>
+
+        <p>
+            <label for="qualification">Previous Qualification:</label><br>
+            <input type="text" id="qualification" name="qualification" placeholder="e.g., Class 12 / High School" required>
+        </p>
+
+        <p>
+            <label for="school">School / College Name:</label><br>
+            <input type="text" id="school" name="school" placeholder="Enter institution name" required>
+        </p>
+
+        <p>
+            <label for="passing-year">Passing Year:</label><br>
+            <input type="number" id="passing-year" name="passing_year" min="2015" max="2026" step="1" value="2026" required>
+        </p>
+
+        <p>
+            <label for="cgpa">Percentage / CGPA:</label><br>
+            <input type="number" id="cgpa" name="cgpa" min="0" max="100" step="0.01" placeholder="e.g., 88.5" required>
+        </p>
+
+        <hr>
+
+        <!-- Document Upload & Declaration -->
+        <h2>3. Documents & Declaration</h2>
+
+        <p>
+            <label for="document">Upload Admission Document (Marksheet/Certificate):</label><br>
+            <input type="file" id="document" name="document" accept=".pdf,.png,.jpg,.jpeg" required>
+        </p>
+
+        <p>
+            <!-- Declaration / Consent Checkbox -->
+            <input type="checkbox" id="declaration" name="declaration" value="accepted" required>
+            <label for="declaration">I hereby declare that all the information provided above is true and accurate to the best of my knowledge.</label>
+        </p>
+
+        <p>
+            <!-- Helpful Link -->
+            Read our <a href="#" target="_blank">Terms and Admission Policy</a> before submitting.
+        </p>
+
+        <br>
+
+        <!-- Action Buttons -->
+        <p>
+            <input type="submit" value="Submit Application">
+            <input type="reset" value="Reset Form">
+        </p>
+
+    </form>
+
+</body>
+</html>

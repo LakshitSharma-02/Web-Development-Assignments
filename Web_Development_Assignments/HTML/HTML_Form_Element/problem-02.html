@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hospital / Clinic Appointment Booking Form</title>
+</head>
+<body>
+
+    <!-- Requirement 1: Heading & Explanation -->
+    <h1>CarePlus Medical Clinic</h1>
+    <h2>Appointment Booking Request</h2>
+    <p>Welcome to our online scheduling portal. Please complete the form below to request an appointment with one of our specialists. Our clinic staff will review your submission and confirm your slot via your preferred communication method.</p>
+    
+    <!-- Requirement 13: Emergency Link -->
+    <p><strong>Note:</strong> If you are experiencing a life-threatening medical emergency, please call our 24/7 Emergency Line immediately at <a href="tel:112">112</a> or visit the nearest emergency room instead of booking online.</p>
+
+    <!-- Requirement 14: Clinic Timings Table (Outside the Form) -->
+    <h3>Clinic Operating Hours</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Day</th>
+                <th>Morning Session</th>
+                <th>Evening Session</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Monday – Friday</td>
+                <td>08:00 AM – 01:00 PM</td>
+                <td>04:00 PM – 08:00 PM</td>
+            </tr>
+            <tr>
+                <td>Saturday</td>
+                <td>09:00 AM – 02:00 PM</td>
+                <td>Closed</td>
+            </tr>
+            <tr>
+                <td>Sunday</td>
+                <td>Closed</td>
+                <td>Closed</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <!-- Form Section -->
+    <form>
+
+        <!-- Section 1: Patient Information -->
+        <h3>1. Patient Details</h3>
+
+        <!-- Requirement 8: Optional Patient ID Field -->
+        <p>
+            <label for="patient-id">Existing Patient ID (Optional):</label><br>
+            <input type="text" id="patient-id" name="patient_id" placeholder="e.g., PID-12345" pattern="PID-[0-9]{5}">
+        </p>
+
+        <!-- Requirement 2 & 9: Patient Name -->
+        <p>
+            <label for="fullname">Full Name:</label><br>
+            <input type="text" id="fullname" name="fullname" placeholder="Lakshit Sharma" minlength="2" maxlength="50" required>
+        </p>
+
+        <!-- Requirement 2 & 9: Date of Birth -->
+        <p>
+            <label for="dob">Date of Birth:</label><br>
+            <input type="date" id="dob" name="dob" min="1900-01-01" max="2026-12-31" required>
+        </p>
+
+        <!-- Requirement 2 & 9: Email -->
+        <p>
+            <label for="email">Email Address:</label><br>
+            <input type="email" id="email" name="email" placeholder="patient@example.com" required>
+        </p>
+
+        <!-- Requirement 2 & 9: Mobile Number -->
+        <p>
+            <label for="mobile">Mobile Phone Number:</label><br>
+            <input type="tel" id="mobile" name="mobile" placeholder="10-digit phone number" pattern="[0-9]{10}" maxlength="10" required>
+        </p>
+
+        <hr>
+
+        <!-- Section 2: Visit & Doctor Preferences -->
+        <h3>2. Appointment Details</h3>
+
+        <!-- Requirement 4: Doctor Selection Dropdown (5 Doctors with Specialties) -->
+        <p>
+            <label for="doctor">Select Doctor / Specialty:</label><br>
+            <select id="doctor" name="doctor" required>
+                <option value="">-- Choose a Doctor --</option>
+                <option value="dr-smith">Dr.smar kumar– General Cardiology</option>
+                <option value="dr-johnson">Dr. Laxman Kalra – Pediatrics</option>
+                <option value="dr-williams">Dr. Dilip Deshpande – Orthopedics & Sports Medicine</option>
+                <option value="dr-brown">Dr.R.K Mishra – Dermatology</option>
+                <option value="dr-davis">Dr. Harsh Chauhan – Neurology</option>
+            </select>
+        </p>
+
+        <!-- Requirement 5: Visit-Type Choice -->
+        <p>
+            <label for="visit-type">Type of Visit:</label><br>
+            <select id="visit-type" name="visit_type" required>
+                <option value="">-- Select Visit Type --</option>
+                <option value="new-patient">New Patient Consultation</option>
+                <option value="follow-up">Follow-up Visit</option>
+                <option value="consultation">General Health Consultation</option>
+                <option value="emergency">Urgent / Emergency Care</option>
+            </select>
+        </p>
+
+        <!-- Requirement 3 & 9: Appointment Date and Time -->
+        <p>
+            <label for="appointment-date">Preferred Appointment Date:</label><br>
+            <input type="date" id="appointment-date" name="appointment_date" min="2026-08-31" required>
+        </p>
+
+        <p>
+            <label for="appointment-time">Preferred Appointment Time:</label><br>
+            <input type="time" id="appointment-time" name="appointment_time" min="08:00" max="20:00" required>
+        </p>
+
+        <!-- Requirement 6: Preferred Communication Method (Single Choice / Radio Buttons) -->
+        <p>
+            <label>Preferred Communication Method:</label><br>
+            <input type="radio" id="comm-phone" name="comm_method" value="phone" required>
+            <label for="comm-phone">Phone Call</label>
+            
+            <input type="radio" id="comm-sms" name="comm_method" value="sms">
+            <label for="comm-sms">SMS / Text Message</label>
+
+            <input type="radio" id="comm-email" name="comm_method" value="email">
+            <label for="comm-email">Email</label>
+        </p>
+
+        <!-- Requirement 7 & 9: Reason for Visit / Additional Information -->
+        <p>
+            <label for="reason">Reason for Visit / Symptoms / Additional Details:</label><br>
+            <textarea id="reason" name="reason" rows="4" cols="50" placeholder="Please briefly describe the reason for your appointment or any ongoing symptoms..." minlength="5" maxlength="500"></textarea>
+        </p>
+
+        <hr>
+
+        <!-- Section 3: Terms & Submission -->
+        <h3>3. Terms & Confirmation</h3>
+
+        <!-- Requirement 10: Terms Checkbox -->
+        <p>
+            <input type="checkbox" id="terms" name="terms_accepted" value="yes" required>
+            <label for="terms">I agree to the clinic's appointment policies, cancellation procedures, and privacy terms.</label>
+        </p>
+
+        <!-- Requirement 11: Submit and Reset Controls -->
+        <p>
+            <input type="submit" value="Book Appointment">
+            <input type="reset" value="Clear Form">
+        </p>
+
+    </form>
+
+    <hr>
+    <p>Need help? Contact clinic administration at <a href="mailto:support@careplusclinic.com">support@careplusclinic.com</a>.</p>
+
+</body>
+</html>

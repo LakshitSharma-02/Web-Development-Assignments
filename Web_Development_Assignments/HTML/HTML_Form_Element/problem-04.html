@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Leave Request Form</title>
+</head>
+<body>
+
+    <!-- Requirement 1: Leave Request Page Heading & Introduction -->
+    <h1>Company Portal: Employee Leave Request</h1>
+    <p>Please complete this form to submit your formal leave application for manager and HR approval. Ensure all requested information and leave durations are accurate before submitting.</p>
+
+    <!-- Requirement 16: Leave Categories Table Outside the Form -->
+    <h3>Leave Categories Overview</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Leave Category</th>
+                <th>Description</th>
+                <th>Standard Allocation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Casual Leave (CL)</td>
+                <td>Short-term urgent or personal matters.</td>
+                <td>12 Days / Year</td>
+            </tr>
+            <tr>
+                <td>Sick Leave (SL)</td>
+                <td>Medical reasons or health recovery (requires doctor's note for > 2 days).</td>
+                <td>10 Days / Year</td>
+            </tr>
+            <tr>
+                <td>Earned Leave (EL)</td>
+                <td>Planned vacations or extended personal leave.</td>
+                <td>15 Days / Year</td>
+            </tr>
+            <tr>
+                <td>Work From Home (WFH)</td>
+                <td>Remote working arrangement approved by department head.</td>
+                <td>As per Project Need</td>
+            </tr>
+            <tr>
+                <td>Other</td>
+                <td>Bereavement, jury duty, or unpaid leave.</td>
+                <td>Case-by-Case</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <!-- Form Section -->
+    <form action="/submit-leave-request" method="POST" enctype="multipart/form-data">
+
+        <!-- Section 1: Employee Information -->
+        <h3>1. Employee Information</h3>
+
+        <!-- Requirement 2, 3 & 14: Employee ID (Required with pattern/length constraint) -->
+        <p>
+            <label for="emp-id">Employee ID:</label><br>
+            <input type="text" id="emp-id" name="emp_id" placeholder="e.g., EMP-1042" pattern="EMP-[0-9]{4}" maxlength="8" required>
+        </p>
+
+        <!-- Requirement 2 & 14: Employee Name -->
+        <p>
+            <label for="emp-name">Full Name:</label><br>
+            <input type="text" id="emp-name" name="emp_name" placeholder="John Doe" minlength="2" maxlength="50" required>
+        </p>
+
+        <!-- Requirement 2 & 14: Email Address -->
+        <p>
+            <label for="emp-email">Corporate Email Address:</label><br>
+            <input type="email" id="emp-email" name="emp_email" placeholder="john.doe@company.com" required>
+        </p>
+
+        <!-- Requirement 2, 4 & 14: Department Dropdown (6 Departments) -->
+        <p>
+            <label for="department">Department:</label><br>
+            <select id="department" name="department" required>
+                <option value="">-- Select Department --</option>
+                <option value="engineering">Software Engineering</option>
+                <option value="hr">Human Resources</option>
+                <option value="finance">Finance & Accounting</option>
+                <option value="marketing">Marketing & Sales</option>
+                <option value="operations">Operations & Logistics</option>
+                <option value="customer-support">Customer Support</option>
+            </select>
+        </p>
+
+        <!-- Requirement 13: Realistic demonstration of readonly/disabled attributes -->
+        <p>
+            <label for="approval-status">Application Status (System Generated):</label><br>
+            <input type="text" id="approval-status" name="approval_status" value="Pending Manager Review" readonly disabled>
+        </p>
+
+        <hr>
+
+        <!-- Section 2: Leave Details -->
+        <h3>2. Leave Details & Duration</h3>
+
+        <!-- Requirement 5 & 14: Leave-Type Choices -->
+        <p>
+            <label for="leave-type">Leave Category:</label><br>
+            <select id="leave-type" name="leave_type" required>
+                <option value="">-- Select Leave Type --</option>
+                <option value="casual">Casual Leave</option>
+                <option value="sick">Sick Leave</option>
+                <option value="earned">Earned Leave</option>
+                <option value="wfh">Work From Home (WFH)</option>
+                <option value="other">Other</option>
+            </select>
+        </p>
+
+        <!-- Requirement 6 & 14: Start and End Dates with constraints -->
+        <p>
+            <label for="start-date">Start Date:</label><br>
+            <input type="date" id="start-date" name="start_date" min="2026-01-01" max="2026-12-31" required>
+        </p>
+
+        <p>
+            <label for="end-date">End Date:</label><br>
+            <input type="date" id="end-date" name="end_date" min="2026-01-01" max="2026-12-31" required>
+        </p>
+
+        <!-- Requirement 7 & 14: Number Field for Leave Days (min, max, step) -->
+        <p>
+            <label for="total-days">Total Number of Days:</label><br>
+            <input type="number" id="total-days" name="total_days" min="0.5" max="90" step="0.5" placeholder="e.g., 2.5" required>
+        </p>
+
+        <!-- Requirement 9 & 14: Textarea for Reason -->
+        <p>
+            <label for="reason">Reason for Leave:</label><br>
+            <textarea id="reason" name="leave_reason" rows="4" cols="50" placeholder="Please provide details regarding your leave request..." minlength="10" maxlength="400" required></textarea>
+        </p>
+
+        <!-- Requirement 11 & 14: Optional Supporting Document Upload -->
+        <p>
+            <label for="attachment">Supporting Document (e.g., Medical Certificate, Optional):</label><br>
+            <input type="file" id="attachment" name="attachment" accept=".pdf,.png,.jpg,.jpeg">
+        </p>
+
+        <hr>
+
+        <!-- Section 3: Communication & Declaration -->
+        <h3>3. Contact During Leave & Declaration</h3>
+
+        <!-- Requirement 8 & 14: Radio Choice for Reachability -->
+        <p>
+            <label>Will you be reachable during leave?</label><br>
+            <input type="radio" id="reachable-yes" name="reachable" value="yes" required>
+            <label for="reachable-yes">Yes, easily reachable</label>
+            
+            <input type="radio" id="reachable-limited" name="reachable" value="limited">
+            <label for="reachable-limited">Limited reachability (Urgent cases only)</label>
+            
+            <input type="radio" id="reachable-no" name="reachable" value="no">
+            <label for="reachable-no">No (Off-grid / Out of coverage)</label>
+        </p>
+
+        <!-- Requirement 10 & 14: Alternate Contact Number -->
+        <p>
+            <label for="alt-contact">Emergency / Alternate Contact Number:</label><br>
+            <input type="tel" id="alt-contact" name="alt_contact" placeholder="10-digit emergency number" pattern="[0-9]{10}" maxlength="10" required>
+        </p>
+
+        <!-- Requirement 12 & 14: Declaration Checkbox -->
+        <p>
+            <input type="checkbox" id="declaration" name="declaration" value="confirmed" required>
+            <label for="declaration">I certify that the information provided is accurate and that work handovers have been arranged with my team prior to taking leave.</label>
+        </p>
+
+        <br>
+
+        <!-- Requirement 15: Submit and Reset Controls -->
+        <p>
+            <input type="submit" value="Submit Leave Request">
+            <input type="reset" value="Reset Form">
+        </p>
+
+    </form>
+
+</body>
+</html>

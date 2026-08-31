@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Course Enrollment & Student Registration</title>
+</head>
+<body>
+
+    <!-- Requirement 15: Image and Course Info Link Outside the Form -->
+    <img src="https://tse2.mm.bing.net/th/id/OIP.V7CKvOZ1rTOmEWzIdRdobQHaFx?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Tech Platform Banner" width="600" height="250"><br>
+     <p>
+        Want to know more about our curriculum and prerequisites? 
+        Visit our <a href="#" target="_blank">Detailed Course Catalog & Syllabus Guide</a>.
+    </p>
+
+    <hr>
+
+    <!-- Requirement 1: Introductory Enrollment Section -->
+    <h1>Tech Academy Student Registration</h1>
+    <h2>Online Course Enrollment Form</h2>
+    <p>Welcome! Fill out the registration form below to secure your seat in our upcoming technical training programs. Please double-check your account and contact details to ensure smooth access to the learning portal.</p>
+
+    <!-- Form Start -->
+    <form>
+
+        <!-- Section 1: Account & Personal Information -->
+        <h3>1. Personal & Account Information</h3>
+
+        <!-- Requirement 2 & 11: Name -->
+        <p>
+            <label for="student-name">Full Name:</label><br>
+            <input type="text" id="student-name" name="student_name" placeholder="Lakshit Sharma" minlength="2" maxlength="50" required>
+        </p>
+
+        <!-- Requirement 2 & 11: Email -->
+        <p>
+            <label for="email">Email Address:</label><br>
+            <input type="email" id="email" name="email" placeholder="student@example.com" required>
+        </p>
+
+        <!-- Requirement 2 & 11: Password -->
+        <p>
+            <label for="password">Account Password:</label><br>
+            <input type="password" id="password" name="password" placeholder="Minimum 8 characters" minlength="8" maxlength="30" required>
+        </p>
+
+        <!-- Requirement 2 & 11: Mobile Number -->
+        <p>
+            <label for="mobile">Mobile Number:</label><br>
+            <input type="tel" id="mobile" name="mobile" placeholder="10-digit mobile number" pattern="[0-9]{10}" maxlength="10" required>
+        </p>
+
+        <!-- Requirement 2 & 11: Date of Birth -->
+        <p>
+            <label for="dob">Date of Birth:</label><br>
+            <input type="date" id="dob" name="dob" min="1950-01-01" max="2012-12-31" required>
+        </p>
+
+        <hr>
+
+        <!-- Section 2: Course Selection & Preferences -->
+        <h3>2. Course & Batch Preferences</h3>
+
+        <!-- Requirement 3: Course Dropdown (At least 6 options) -->
+        <p>
+            <label for="course">Select Course:</label><br>
+            <select id="course" name="course" required>
+                <option value="">-- Choose a Course --</option>
+                <option value="fullstack-web">Full-Stack Web Development</option>
+                <option value="java-backend">Java Enterprise Backend Engineering</option>
+                <option value="python-data">Python Data Science & AI</option>
+                <option value="dsa-prep">Data Structures & Algorithms Mastery</option>
+                <option value="database-admin">Database Systems & Management</option>
+                <option value="mobile-dev">Mobile App Development</option>
+            </select>
+        </p>
+
+        <!-- Requirement 4: Batch/Session Dropdown -->
+        <p>
+            <label for="batch">Select Preferred Batch / Session:</label><br>
+            <select id="batch" name="batch" required>
+                <option value="">-- Choose a Batch --</option>
+                <option value="morning-weekday">Morning Batch (Mon-Fri, 08:00 AM - 10:00 AM)</option>
+                <option value="evening-weekday">Evening Batch (Mon-Fri, 06:00 PM - 08:00 PM)</option>
+                <option value="weekend-saturday">Weekend Batch (Saturday, 10:00 AM - 04:00 PM)</option>
+                <option value="weekend-sunday">Weekend Batch (Sunday, 10:00 AM - 04:00 PM)</option>
+            </select>
+        </p>
+
+        <!-- Requirement 5: Radio Choices for Online, Offline, or Hybrid -->
+        <p>
+            <label>Learning Mode:</label><br>
+            <input type="radio" id="mode-online" name="learning_mode" value="online" required>
+            <label for="mode-online">Online</label>
+            
+            <input type="radio" id="mode-offline" name="learning_mode" value="offline">
+            <label for="mode-offline">Offline (In-Person)</label>
+            
+            <input type="radio" id="mode-hybrid" name="learning_mode" value="hybrid">
+            <label for="mode-hybrid">Hybrid</label>
+        </p>
+
+        <!-- Requirement 6: Checkboxes for Interest Areas -->
+        <p>
+            <label>Areas of Interest (Select all that apply):</label><br>
+            <input type="checkbox" id="area-java" name="interests" value="java">
+            <label for="area-java">Java</label><br>
+
+            <input type="checkbox" id="area-python" name="interests" value="python">
+            <label for="area-python">Python</label><br>
+
+            <input type="checkbox" id="area-web" name="interests" value="web_development">
+            <label for="area-web">Web Development</label><br>
+
+            <input type="checkbox" id="area-dsa" name="interests" value="data_structures">
+            <label for="area-dsa">Data Structures</label><br>
+
+            <input type="checkbox" id="area-db" name="interests" value="database">
+            <label for="area-db">Database</label>
+        </p>
+
+        <hr>
+
+        <!-- Section 3: Academic Background & Experience -->
+        <h3>3. Background Information & Portfolio</h3>
+
+        <!-- Requirement 7: Education Level, College/Institution, and Current Semester/Year -->
+        <p>
+            <label for="education-level">Highest Education Level:</label><br>
+            <select id="education-level" name="education_level" required>
+                <option value="">-- Select Degree / Level --</option>
+                <option value="highschool">High School (Class 12)</option>
+                <option value="diploma">Diploma</option>
+                <option value="bachelors">Bachelor's Degree</option>
+                <option value="masters">Master's Degree</option>
+                <option value="other">Other</option>
+            </select>
+        </p>
+
+        <p>
+            <label for="college">College / School / Institution Name:</label><br>
+            <input type="text" id="college" name="college" placeholder="e.g., State University" required>
+        </p>
+
+        <p>
+            <label for="semester">Current Academic Semester / Year:</label><br>
+            <select id="semester" name="semester" required>
+                <option value="">-- Select Semester / Year --</option>
+                <option value="1st-year">1st Year</option>
+                <option value="2nd-year">2nd Year</option>
+                <option value="3rd-year">3rd Year</option>
+                <option value="4th-year">4th Year</option>
+                <option value="graduated">Graduated / Working Professional</option>
+            </select>
+        </p>
+
+        <!-- Requirement 8 & 11: Programming Experience (Number field with min/max/step) -->
+        <p>
+            <label for="experience">Prior Programming Experience (in years):</label><br>
+            <input type="number" id="experience" name="experience" min="0" max="20" step="0.5" value="0" required>
+        </p>
+
+        <!-- Requirement 9 & 11: URL Field for Portfolio/GitHub -->
+        <p>
+            <label for="portfolio">GitHub Profile / Portfolio URL:</label><br>
+            <input type="url" id="portfolio" name="portfolio" placeholder="https://github.com/yourusername">
+        </p>
+
+        <!-- Requirement 10 & 11: Textarea for Learning Goals -->
+        <p>
+            <label for="goals">Learning Goals & Expectations:</label><br>
+            <textarea id="goals" name="learning_goals" rows="4" cols="50" placeholder="Describe what you aim to achieve after completing this course..." minlength="10" maxlength="500" required></textarea>
+        </p>
+
+        <hr>
+
+        <!-- Section 4: Confirmation & Submission -->
+        <h3>4. Confirmation</h3>
+
+        <!-- Requirement 12: Confirmation Checkbox -->
+        <p>
+            <input type="checkbox" id="confirm" name="confirmation" value="agreed" required>
+            <label for="confirm">I confirm that all details provided are accurate and agree to follow the course guidelines.</label>
+        </p>
+
+        <!-- Requirement 13: Submit and Reset Controls -->
+        <p>
+            <input type="submit" value="Register Now">
+            <input type="reset" value="Clear Form">
+        </p>
+
+    </form>
+
+</body>
+</html>
